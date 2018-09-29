@@ -37,7 +37,7 @@ def compute(args):
 
         start_time = datetime.datetime.now()
         line_set = set()
-        keshi_list = ['妇科', '妇科综合', '妇科炎症', '月经不调', '宫颈糜烂', '子宫肌瘤', '宫颈疾病', '宫外孕', '卵巢囊肿', '痛经', '外阴白斑', '更年期综合症']
+        keshi_list = ['产科', '产科综合', '人流']
         with codecs.open(in_file_path, encoding="utf8") as in_json_file:
             count = 0
             pattern = "[\.,;:'`?!，。？；：！]"
@@ -50,8 +50,8 @@ def compute(args):
                     if keshi not in keshi_list:
                         continue
                     #去除互为同义词的科室
-                    if keshi in ['妇科综合', '妇科炎症']:
-                        keshi = '妇科'
+                    if keshi in ['产科综合']:
+                        keshi = '产科'
                     logger.debug("line:" + json_line)
 
                     if keshi not in keshi_ill_list:
